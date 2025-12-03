@@ -9,6 +9,7 @@
 .home-wrapper {
   width: 100%;
   min-height: 100vh;
+  
   position: relative;
   display: flex;
   flex-direction: column;
@@ -88,6 +89,7 @@
   font-size: 18px;
   cursor: pointer;
   transition: 0.3s;
+  margin-bottom: 60px;
 }
 
 .forecast-btn:hover {

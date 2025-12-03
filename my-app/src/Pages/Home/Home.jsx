@@ -21,30 +21,24 @@ const Home = () => {
 
   const API_KEY = "e99e45deaac12ded760d3886bb092d2a";
 
-  const getBackgroundVideo = () => {
-    if (!weather) return stormVideo;
+ const getBackgroundVideo = () => {
+  if (!weather) return stormVideo;
 
-    const condition = weather.weather[0].main;
+  const condition = weather.weather[0].main;
 
-    switch (condition) {
-      case "Clear":
-        return sunnyVideo;
-      case "Clouds":
-        return cloudyVideo;
-      case "Rain":
-        return rainVideo;
-      case "Thunderstorm":
-        return stormVideo;
-      case "Mist":
-      case "Haze":
-      case "Fog":
-        return fogVideo;
-      case "Snow":
-        return snowVideo;
-      default:
-        return cloudyVideo;
-    }
+  const videoMap = {
+    Clear: sunnyVideo,
+    Clouds: cloudyVideo,
+    Rain: rainVideo,
+    Thunderstorm: stormVideo,
+    Mist: fogVideo,
+    Haze: fogVideo,
+    Fog: fogVideo,
+    Snow: snowVideo,
   };
+
+  return videoMap[condition] || cloudyVideo;
+};
 
   const fetchWeather = async (event) => {
     event.preventDefault();
